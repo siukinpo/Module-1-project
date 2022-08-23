@@ -30,22 +30,22 @@ let rand3 = 255;
 const ROOT_PATH = "http://127.0.0.1:5500/Module%201%20project/logospics/";
 let bg;
 let bgList = [
-  "samoyed-1-645mk070111.jpeg",
-  "Pomeranian_Featured-Image.webp",
-  "MQ3AMCFZ6RGXRKPZXW56IAXGYI.jpeg",
-  "nature-3082832_1280.jpeg",
-  "wallpaper2you_129858.jpeg",
-  "wallpaper2you_129860.jpeg",
-  "YUS4V2QJWRCJZJDIPX4Q7BJNDQ.jpeg",
-  "dog_samoyed_desktop.webp",
-  "Samoyed-FeaturedImage.webp",
-  "istockphoto-674293178-612x612.jpeg",
-  "Poodle-Canis-familiaris-Toy-Poodle.jpeg",
-  "布偶貓-930x620.jpeg",
-  "20170303_LI_布偶貓.png",
-  "11c214ecb50c8c.png",
-  "18d9e601c9c24a91a95d166d2752ad4d.jpeg",
-  "59bf0bafc44dd.jpeg",
+  "./gamepics/samoyed-1-645mk070111.jpeg",
+  "./gamepics/Pomeranian_Featured-Image.webp",
+  "./gamepics/MQ3AMCFZ6RGXRKPZXW56IAXGYI.jpeg",
+  "./gamepics/nature-3082832_1280.jpeg",
+  "./gamepics/wallpaper2you_129858.jpeg",
+  "./gamepics/wallpaper2you_129860.jpeg",
+  "./gamepics/YUS4V2QJWRCJZJDIPX4Q7BJNDQ.jpeg",
+  "./gamepics/dog_samoyed_desktop.webp",
+  "./gamepics/Samoyed-FeaturedImage.webp",
+  "./gamepics/istockphoto-674293178-612x612.jpeg",
+  "./gamepics/Poodle-Canis-familiaris-Toy-Poodle.jpeg",
+  "./gamepics/布偶貓-930x620.jpeg",
+  "./gamepics/20170303_LI_布偶貓.png",
+  "./gamepics/11c214ecb50c8c.png",
+  "./gamepics/18d9e601c9c24a91a95d166d2752ad4d.jpeg",
+  "./gamepics/59bf0bafc44dd.jpeg",
   // "https://shadergif.com/gifs/dbs5NZNhf0fihJtO2018-12-12-03h20m.gif",
 ];
 //console.log(`${ROOT_PATH}${bgList[0]}`);
@@ -67,7 +67,7 @@ let changePattern = false;
 function setup() {
   /* Set the canvas to be under the element #canvas*/
 
-  const canvas = createCanvas(windowWidth - 155, windowHeight - 500);
+  const canvas = createCanvas(windowWidth - 155, windowHeight - 100);
   canvas.parent(document.querySelector("#canvas"));
 
   /*Calculate the number of columns and rows */
