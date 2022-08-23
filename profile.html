@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+    integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=DynaPuff:wght@500&family=Rubik+Dirt&display=swap"
+    rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <title>James-Personal Website</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: "Bree Serif", serif;
+    }
+
+    body {
+      background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+      height: 100vh;
+      overflow: hidden;
+      overflow-y: scroll;
+    }
+
+    @keyframes gradient {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .header {
+      background-color: RGBA(0, 0, 0, 0.9);
+      height: 90px;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      position: fixed;
+      top: 0;
+      z-index: 5;
+    }
+
+    @media screen and (max-width: 1200px) {
+      .header {
+        height: auto;
+      }
+
+      .home {
+        margin-top: 200px;
+      }
+
+
+    }
+
+    .pagesContainer {
+      display: flex;
+      font-size: 25px;
+      min-width: 33%;
+      justify-content: flex-end;
+    }
+
+    .pagesContainer>a {
+      text-decoration: none;
+      font-size: 20px;
+      background: linear-gradient(45deg, #f3ec78, #af4261);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: 5px 25px;
+    }
+
+    #name {
+      /* color: #00ffd1; */
+      /* color: aquamarine; */
+      background: linear-gradient(45deg, #f3ec78, #af4261);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 2rem;
+      width: 200px;
+      box-sizing: border-box;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    div.logoContainer {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      min-width: 33%;
+    }
+
+    a.logo {
+      background: linear-gradient(45deg, #f3ec78, #af4261);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-color: RGBA(0, 0, 0, 0);
+      font-size: 2rem;
+      border: 0;
+      padding: 0;
+      margin: 10px 15px;
+    }
+
+    /* ////////////////////////////////////////////////////////////////////////////////////////////// */
+    .pages {
+      position: relative;
+    }
+
+    .page {
+      opacity: 1;
+      display: block;
+      /* transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out; */
+      transition-property: opacity, transform !important;
+      transition-duration: 1.0s;
+      transition-timing-function: ease;
+      position: absolute;
+      inset: 0;
+      transform: scale(1);
+    }
+
+    .page[hidden] {
+      opacity: 0;
+      transition-property: opacity, transform !important;
+      transition-duration: 1s;
+      transition-timing-function: ease;
+      pointer-events: none;
+      transform: scale(0);
+    }
+
+    .home[hidden] {
+      opacity: 0;
+      transition-property: opacity, transform;
+      transition-duration: 1s;
+      transition-timing-function: ease;
+      pointer-events: none;
+      transform: scale(0);
+    }
+
+    .page p {
+      transition-property: transform;
+      transition-duration: 0.5s;
+      transition-timing-function: ease;
+      transform: translateX(0);
+    }
+
+    .page[hidden] p {
+      transform: translateX(100%);
+    }
+
+    /* .intro {
+
+            padding: 20px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            height: 1000px;
+
+        } */
+
+    /* ////////////////////////////////////////////////////////////////////////////////////////////// */
+
+    #home {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      height: 800px;
+      flex-wrap: wrap;
+    }
+
+    #introWords {
+      font-size: 50px;
+      font-weight: bold;
+      font-style: italic;
+    }
+
+    /* ////////////////////////////////////////////////////////////////////////////////////////////// */
+    #education {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 800px;
+      padding: 20px;
+    }
+
+    .educationContainer {
+      width: 900px;
+    }
+
+    #eduTitle {
+      font-size: 50px;
+    }
+
+    .edu-subTitle {
+      font-size: 30px;
+      text-align: left;
+    }
+
+    .edu-uni p {
+      font-size: 20px;
+      font-style: italic;
+    }
+
+    /* ////////////////////////////////////////////////////////////////////////////////////////////// */
+    #skills {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 800px;
+    }
+
+    .skillsTitle {
+      font-size: 50px;
+    }
+
+    .skillsInner>img {
+      margin: 20px;
+    }
+
+    /* ////////////////////////////////////////////////////////////////////////////////////////////// */
+    #portfolio {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 800px;
+    }
+
+    #portfolioContainer .project {
+      border: solid 3px black;
+      border-radius: 20px;
+      height: 200px;
+      width: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      font-style: italic;
+      color: #404442;
+    }
+
+    .project>img {
+      border-radius: 15px;
+    }
+
+    .project>div {
+      font-size: 25px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <div id="name">
+      <div>James Siu</div>
+    </div>
+
+    <nav class="pagesContainer">
+      <a href="#home" class="pageLink home">Home</a>
+      <a href="#education " class="pageLink education">Education</a>
+      <a href="#skills" class="pageLink skills">Skills</a>
+      <a href="#portfolio" class="pageLink portfolio">Portfolio</a>
+    </nav>
+
+    <div class="logoContainer">
+      <a href="https://www.facebook.com/kinpo.siu" class="logo" target="_blank"><i
+          class="fa-brands fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/siukinpo_james/" class="logo" target="_blank"><i
+          class="fa-brands fa-instagram"></i></a>
+      <a href="https://wa.me/85251182196?text=" class="logo" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+      <a class="logo"><i class="fa-brands fa-linkedin-in"></i></i></a>
+    </div>
+  </div>
+
+  <div class="pages">
+    <div id="home" class="home">
+      <div id="introPicture">
+        <img src="./logospics/正面相片.jpg" height="450" width="360" />
+      </div>
+      <div id="introWords">
+        <div>Siu Kin Po</div>
+        <p>I am a lifelong learner and<br />a passionate programmer</p>
+      </div>
+    </div>
+
+    <div id="education" class="page">
+      <div class="educationContainer">
+        <div id="eduTitle">Education</div>
+        <hr />
+        <div class="edu-subTitle">Tecky Academy | 2022</div>
+        <br />
+        <div class="edu-uni">
+          <div class="edu-subTitle">
+            BS in Applied Mathematics & Minor in Finance | 2017 - 2022 | THE
+            HONG KONG POLYTECHNIC UNIVERSITY
+          </div>
+          <p>&emsp;&emsp;GPA for Major: 3.31</p>
+          <p>&emsp;&emsp;GPA for Minor: 3.3</p>
+          <p>&emsp;&emsp;WITH SECOND CLASS HONOURS, DIVISION 1</p>
+          <p>&emsp;&emsp;GPA for Award: 3.31</p>
+        </div>
+        <br />
+        <div>
+          <div class="edu-subTitle">
+            Kwun Tong Government Secondary School | 2012-2017
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="skills" class="page">
+      <div class="skillsContainer">
+        <div class="skillsTitle">Skills</div>
+        <hr />
+        <div class="skillsInner">
+          <img src="./logospics/icons8-html-5.svg" alt="HTML5" />
+          <img src="./logospics/icons8-css3.svg" alt="CSS3" />
+          <img src="./logospics/icons8-javascript.svg" alt="Javascript" />
+          <img src="./logospics/icons8-react-native.svg" alt="React Native" />
+          <img src="./logospics/python-5.svg" alt="Python" height="40px" width="40px" />
+        </div>
+      </div>
+    </div>
+
+    <div id="portfolio" class="page">
+      <div id="portfolioContainer">
+        <a href="./game.html" class="project" target="_blank">
+          <img src="./logospics/IMG_8654.jpeg" height="200" width="200" alt="Game of Life" />
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let pages = document.querySelectorAll(".page");
+    let home = document.querySelector("#home");
+    for (let a of document.querySelectorAll("nav a")) {
+      let id = a.href.split("#").pop();
+      a.addEventListener("click", () => {
+        showPage(id);
+      });
+    }
+
+    function showPage(id) {
+      console.log("showPage:", id);
+      for (let page of pages) {
+        if (page.id == id) {
+          page.hidden = false;
+          home.hidden = true;
+        } else if (home.id == id) {
+          home.hidden = false;
+          page.hidden = true;
+        } else {
+          page.hidden = true;
+        }
+      }
+    }
+
+    showPage();
+  </script>
+</body>
+
+</html>
